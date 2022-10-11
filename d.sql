@@ -5,7 +5,7 @@
 -- Dumped from database version 14.5
 -- Dumped by pg_dump version 14.5
 
--- Started on 2022-10-11 21:47:22
+-- Started on 2022-10-11 22:27:37
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -890,7 +890,7 @@ ALTER TABLE ONLY public.type_brands
     ADD CONSTRAINT "type_brands_typeId_fkey" FOREIGN KEY ("typeId") REFERENCES public.types(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2022-10-11 21:47:26
+-- Completed on 2022-10-11 22:27:40
 
 --
 -- PostgreSQL database dump complete
