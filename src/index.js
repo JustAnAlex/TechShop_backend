@@ -1,7 +1,12 @@
 const path = require('path')
 
-//require('dotenv').config({ path: path.resolve(process.cwd(), 'new.env') })
-require('dotenv').config()
+//
+if (process.env.NODE_ENV === 'production') {
+    require('dotenv').config({ path: path.resolve(process.cwd(), 'prod.env') })
+} else {
+    require('dotenv').config()
+}
+
 
 const express = require('express')
 const sequelize = require('./db')
