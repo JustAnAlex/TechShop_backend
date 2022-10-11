@@ -21,6 +21,7 @@ app.use(express.static( path.resolve(__dirname, 'static') ))
 app.use(fileupload({}))
 
 app.use('/api', router)
+app.use('/', (req, res) => res.send("That server work!"))
 
 app.use(errorHandler)
 
