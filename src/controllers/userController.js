@@ -42,11 +42,29 @@ class UserController {
         return res.json(token)
     }
 
-    async check(req, res, next) {
+    async check(req, res) {
         const token = generateJwt(req.user.id, req.user.email, req.user.role)
         console.log(token)
         return res.json(token)
     }
+
+    async getAll(req, res) {
+        let page = (req.query?.page) ? req.query?.page : 1
+        let limit = (req.query?.limit) ? req.query?.limit : 7
+        let offset = (page - 1) * limit
+
+        const users = await User.findAndCountAll({
+            limit, 
+            offset,
+            attributes: {
+                exclude: ['password']
+            }
+        })
+        
+        return res.json(users)
+    }
 }
 
 module.exports = new UserController()
+
+
